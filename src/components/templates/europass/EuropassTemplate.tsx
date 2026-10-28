@@ -3,14 +3,23 @@ import { Mail, Phone, MapPin, Globe, Calendar, Flag } from 'lucide-react';
 import { CVData, Lang } from '../../../types/cv';
 import { getTranslation } from '../../../utils/i18n';
 
+/**
+ * EuropassTemplate კომპონენტის Props ინტერფეისი
+ */
 interface EuropassTemplateProps {
-  data: CVData;
-  lang: Lang;
-  id?: string;
-  className?: string;
-  isPrint?: boolean;
+  data: CVData;         // CV მონაცემები
+  lang: Lang;           // მიმდინარე ენა
+  id?: string;          // DOM ID
+  className?: string;   // დამატებითი სტილის კლასები
+  isPrint?: boolean;    // ბეჭდვის რეჟიმის ფლაგი
 }
 
+/**
+ * ევროპასის ოფიციალური საერთაშორისო CV შაბლონი (Europass Template):
+ * - ევროკავშირის ლურჯი (#0E4194) აქცენტები და Europass-ის ბრენდინგი
+ * - საერთაშორისო ველები: მოქალაქეობა, დაბადების თარიღი, მისამართი
+ * - CEFR ენების ცხრილი და სტრუქტურირებული თარიღების სვეტი
+ */
 export const EuropassTemplate: React.FC<EuropassTemplateProps> = ({
   data,
   lang,

@@ -11,15 +11,21 @@ import { CVData, Lang } from '../types/cv';
 import { validateName, validateEmail, validatePhone } from '../utils/validation';
 import { getTranslation } from '../utils/i18n';
 
+/**
+ * PersonalInfoStep კომპონენტის Props ინტერფეისი
+ */
 interface PersonalInfoStepProps {
-  formData: CVData;
-  lang: Lang;
-  requireRedberryEmail?: boolean;
-  onChange: (updated: Partial<CVData>) => void;
-  onNext: () => void;
-  onBack: () => void;
+  formData: CVData;                   // ფორმის მონაცემები
+  lang: Lang;                         // არჩეული ენა
+  requireRedberryEmail?: boolean;     // Redberry ელ.ფოსტის მოთხოვნის ფლაგი
+  onChange: (updated: Partial<CVData>) => void; // მონაცემების განახლების callback
+  onNext: () => void;                 // შემდეგ ეტაპზე გადასვლა
+  onBack: () => void;                 // წინა ეტაპზე დაბრუნება
 }
 
+/**
+ * ნიმუშად გამოსაყენებელი ავატარების სია (Sample Avatars)
+ */
 const SAMPLE_AVATARS = [
   {
     id: 'male-1',
@@ -38,6 +44,15 @@ const SAMPLE_AVATARS = [
   },
 ];
 
+/**
+ * ეტაპი 1: პირადი ინფორმაცია (Personal Info Step)
+ * - სახელისა და გვარის შეყვანა (ქართული ანბანის ვალიდაციით ქართულ რეჟიმში)
+ * - ფოტოსურათის ატვირთვა (File Upload, URL ან Sample Avatars)
+ * - პროფესიის/პოზიციის მითითება
+ * - ელ.ფოსტის და ტელეფონის ნომრის ვალიდაცია
+ * - მოკლე ბიოგრაფიის (Summary) ჩაწერა
+ * - დამატებითი ველები (მისამართი, დაბადების თარიღი, ვებსაიტი)
+ */
 export const PersonalInfoStep: React.FC<PersonalInfoStepProps> = ({
   formData,
   lang,

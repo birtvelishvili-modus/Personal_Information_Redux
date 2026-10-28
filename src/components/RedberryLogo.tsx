@@ -1,10 +1,16 @@
 import React from 'react';
 
+/**
+ * RedberryLogo კომპონენტის Props ინტერფეისი
+ */
 interface RedberryLogoProps {
-  className?: string;
-  onClick?: () => void;
+  className?: string;   // დამატებითი Tailwind კლასები
+  onClick?: () => void; // ლოგოზე დაკლიკების მოვლენა (მთავარ გვერდზე გადასვლა)
 }
 
+/**
+ * Redberry-ის ბრენდირებული ლოგოს კომპონენტი (+ ნიშნით და ჰოვერ ანიმაციით)
+ */
 export const RedberryLogo: React.FC<RedberryLogoProps> = ({ className = '', onClick }) => {
   return (
     <button

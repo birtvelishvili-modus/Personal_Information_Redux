@@ -3,16 +3,25 @@ import { ChevronLeft, Plus, Trash2 } from 'lucide-react';
 import { CVData, ExperienceItem, Lang } from '../types/cv';
 import { getTranslation } from '../utils/i18n';
 
+/**
+ * ExperienceStep კომპონენტის Props ინტერფეისი
+ */
 interface ExperienceStepProps {
-  formData: CVData;
-  lang: Lang;
-  onUpdateItem: (index: number, field: keyof ExperienceItem, value: string) => void;
-  onAddItem: () => void;
-  onRemoveItem: (index: number) => void;
-  onNext: () => void;
-  onBack: () => void;
+  formData: CVData;       // ფორმის მონაცემები
+  lang: Lang;             // მიმდინარე ენა
+  onUpdateItem: (index: number, field: keyof ExperienceItem, value: string) => void; // ჩანაწერის ველის განახლება
+  onAddItem: () => void;  // ახალი გამოცდილების დამატება
+  onRemoveItem: (index: number) => void; // გამოცდილების წაშლა
+  onNext: () => void;     // შემდეგ ეტაპზე (განათლება) გადასვლა
+  onBack: () => void;     // წინა ეტაპზე (პირადი ინფო) დაბრუნება
 }
 
+/**
+ * ეტაპი 2: გამოცდილება (Experience Step)
+ * - სამუშაო გამოცდილების დინამიური ბარათები (თანამდებობა, დამსაქმებელი, დაწყება/დასრულება, აღწერა)
+ * - ახალი გამოცდილების დამატება / წაშლა
+ * - ვალიდაცია მინიმალურ სიმბოლოებზე
+ */
 export const ExperienceStep: React.FC<ExperienceStepProps> = ({
   formData,
   lang,

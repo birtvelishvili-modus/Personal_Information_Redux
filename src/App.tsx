@@ -43,8 +43,19 @@ import {
 } from './utils/storage';
 import { getTranslation } from './utils/i18n';
 
+/**
+ * მთავარი აპლიკაციის კომპონენტი (Main Application Root):
+ * - აკავშირებს Redux State-ს ინტერფეისთან
+ * - მართავს აპლიკაციის სამ ძირითად ხედს:
+ *   1. 'landing' - საწყისი გვერდი
+ *   2. 'wizard' - 4-ეტაპიანი CV შევსების ფორმა + Live Preview
+ *   3. 'completed' - დასრულებული CV-ის ეკრანი და ექსპორტი
+ * - ავტომატურად ახდენს მონაცემების სინქრონიზაციას LocalStorage-თან
+ */
 export default function App() {
   const dispatch = useAppDispatch();
+
+  // Redux State-ის ამოღება
   const formData = useAppSelector((state) => state.cv.formData);
   const currentStep = useAppSelector((state) => state.cv.currentStep);
   const activeView = useAppSelector((state) => state.cv.activeView);
@@ -53,11 +64,12 @@ export default function App() {
   const isDemoTourOpen = useAppSelector((state) => state.cv.isDemoTourOpen);
   const isCustomized = useAppSelector((state) => state.cv.isCustomized);
 
+  // ლოკალური მდგომარეობები მოდალებისა და მობილური ტაბებისთვის
   const [isTemplateModalOpen, setIsTemplateModalOpen] = useState(false);
   const [showConfirmReset, setShowConfirmReset] = useState(false);
   const [mobileTab, setMobileTab] = useState<'form' | 'preview'>('form');
 
-  // Sync to localStorage
+  // მონაცემების ავტომატური შენახვა LocalStorage-ში (Auto-save)
   useEffect(() => {
     saveCvToStorage(formData);
   }, [formData]);

@@ -3,16 +3,22 @@ import { ChevronLeft, Plus, Trash2 } from 'lucide-react';
 import { CVData, EducationItem, Lang } from '../types/cv';
 import { getTranslation } from '../utils/i18n';
 
+/**
+ * EducationStep კომპონენტის Props ინტერფეისი
+ */
 interface EducationStepProps {
-  formData: CVData;
-  lang: Lang;
-  onUpdateItem: (index: number, field: keyof EducationItem, value: string) => void;
-  onAddItem: () => void;
-  onRemoveItem: (index: number) => void;
-  onNext: () => void;
-  onBack: () => void;
+  formData: CVData;       // ფორმის მონაცემები
+  lang: Lang;             // მიმდინარე ენა
+  onUpdateItem: (index: number, field: keyof EducationItem, value: string) => void; // განათლების ველის განახლება
+  onAddItem: () => void;  // ახალი განათლების დამატება
+  onRemoveItem: (index: number) => void; // განათლების წაშლა
+  onNext: () => void;     // შემდეგ ეტაპზე (უნარები და ენები) გადასვლა
+  onBack: () => void;     // წინა ეტაპზე (გამოცდილება) დაბრუნება
 }
 
+/**
+ * ხარისხების (Degree) ჩამოსაშლელი სიის გასაღებები
+ */
 const DEGREE_KEYS = [
   'degrees.bachelor',
   'degrees.master',
@@ -23,6 +29,11 @@ const DEGREE_KEYS = [
   'degrees.other',
 ];
 
+/**
+ * ეტაპი 3: განათლება (Education Step)
+ * - სასწავლებლის, ხარისხის, დამთავრების თარიღისა და აღწერის მითითება
+ * - განათლების მრავალი ჩანაწერის დამატების და წაშლის შესაძლებლობა
+ */
 export const EducationStep: React.FC<EducationStepProps> = ({
   formData,
   lang,

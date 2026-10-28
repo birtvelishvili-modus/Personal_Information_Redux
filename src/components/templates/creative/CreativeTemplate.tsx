@@ -3,14 +3,23 @@ import { Mail, Phone, MapPin, Globe } from 'lucide-react';
 import { CVData, Lang } from '../../../types/cv';
 import { getTranslation } from '../../../utils/i18n';
 
+/**
+ * CreativeTemplate კომპონენტის Props ინტერფეისი
+ */
 interface CreativeTemplateProps {
-  data: CVData;
-  lang: Lang;
-  id?: string;
-  className?: string;
-  isPrint?: boolean;
+  data: CVData;         // CV მონაცემები
+  lang: Lang;           // მიმდინარე ენა
+  id?: string;          // DOM ID
+  className?: string;   // დამატებითი სტილის კლასები
+  isPrint?: boolean;    // ბეჭდვის რეჟიმის ფლაგი
 }
 
+/**
+ * კრეატიული დიზაინერული CV შაბლონი (Creative Modern Template):
+ * - მკვეთრი ინდიგო (#6366F1) და იისფერი აქცენტები
+ * - თანამედროვე ბეიჯები უნარებისთვის და სუფთა ტიპოგრაფია
+ * - შემოქმედებითი და ტექნოლოგიური პროფესიების შესაფერისი დიზაინი
+ */
 export const CreativeTemplate: React.FC<CreativeTemplateProps> = ({
   data,
   lang,

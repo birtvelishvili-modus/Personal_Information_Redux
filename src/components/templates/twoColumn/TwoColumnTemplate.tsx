@@ -3,14 +3,22 @@ import { Mail, Phone, MapPin, Globe } from 'lucide-react';
 import { CVData, Lang } from '../../../types/cv';
 import { getTranslation } from '../../../utils/i18n';
 
+/**
+ * TwoColumnTemplate კომპონენტის Props ინტერფეისი
+ */
 interface TwoColumnTemplateProps {
-  data: CVData;
-  lang: Lang;
-  id?: string;
-  className?: string;
-  isPrint?: boolean;
+  data: CVData;         // CV მონაცემები
+  lang: Lang;           // მიმდინარე ენა
+  id?: string;          // DOM ID
+  className?: string;   // დამატებითი სტილის კლასები
+  isPrint?: boolean;    // ბეჭდვის რეჟიმის ფლაგი
 }
 
+/**
+ * ორსვეტიანი CV შაბლონი (Two-Column Sidebar Template):
+ * - მარცხენა მუქი საიდბარი: ფოტო, კონტაქტები, უნარები და ენები
+ * - მარჯვენა მთავარი ნაწილი: სახელი/პროფესია, ჩემ შესახებ, სამუშაო გამოცდილება და განათლება
+ */
 export const TwoColumnTemplate: React.FC<TwoColumnTemplateProps> = ({
   data,
   lang,

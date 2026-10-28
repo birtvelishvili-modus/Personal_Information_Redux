@@ -6,15 +6,23 @@ import { TwoColumnTemplate } from './twoColumn/TwoColumnTemplate';
 import { EuropassTemplate } from './europass/EuropassTemplate';
 import { CreativeTemplate } from './creative/CreativeTemplate';
 
+/**
+ * TemplateRenderer კომპონენტის Props ინტერფეისი
+ */
 interface TemplateRendererProps {
-  templateId: TemplateId;
-  data: CVData;
-  lang: Lang;
-  id?: string;
-  className?: string;
-  isPrint?: boolean;
+  templateId: TemplateId; // ასარჩევი შაბლონის იდენტიფიკატორი
+  data: CVData;           // CV-ის მონაცემები
+  lang: Lang;             // მიმდინარე ენა
+  id?: string;            // HTML DOM id
+  className?: string;     // დამატებითი სტილის კლასები
+  isPrint?: boolean;      // ბეჭდვის რეჟიმის ფლაგი
 }
 
+/**
+ * შაბლონების გამშვები (Template Renderer):
+ * იღებს templateId-ს და არჩეული შაბლონის მიხედვით Switch-case-ით არენდერებს
+ * შესაბამის ვიზუალურ კომპონენტს (Redberry, Modern, TwoColumn, Europass, Creative).
+ */
 export const TemplateRenderer: React.FC<TemplateRendererProps> = ({
   templateId,
   data,

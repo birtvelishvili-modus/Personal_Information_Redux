@@ -4,14 +4,22 @@ import { Lang, TemplateId } from '../types/cv';
 import { TEMPLATE_LIST } from './templates/templatesRegistry';
 import { getTranslation } from '../utils/i18n';
 
+/**
+ * TemplateSelectorModal კომპონენტის Props ინტერფეისი
+ */
 interface TemplateSelectorModalProps {
-  isOpen: boolean;
-  activeTemplate: TemplateId;
-  lang: Lang;
-  onSelectTemplate: (templateId: TemplateId) => void;
-  onClose: () => void;
+  isOpen: boolean;                                     // მოდალის გახსნის სტატუსი
+  activeTemplate: TemplateId;                          // ამჟამად არჩეული შაბლონი
+  lang: Lang;                                          // მიმდინარე ენა
+  onSelectTemplate: (templateId: TemplateId) => void;  // შაბლონის არჩევის მოვლენა
+  onClose: () => void;                                 // მოდალის დახურვა
 }
 
+/**
+ * შაბლონების ასარჩევი მოდალი (Template Selector Modal):
+ * - აჩვენებს ხელმისაწვდომი შაბლონების ბარათებს (Redberry, Modern, Two Column, Europass, Creative)
+ * - საშუალებას აძლევს მომხმარებელს აირჩიოს სასურველი დიზაინი
+ */
 export const TemplateSelectorModal: React.FC<TemplateSelectorModalProps> = ({
   isOpen,
   activeTemplate,

@@ -1,11 +1,16 @@
 import { CVData, Lang, TemplateId } from '../types/cv';
 import { redberryBlank } from '../components/templates/redberry/redberry.blank';
 
+// LocalStorage-ის გასაღებები
 const STORAGE_KEY = 'universal_cv_form_data';
 const STEP_KEY = 'universal_cv_active_step';
 const LANG_KEY = 'universal_cv_active_lang';
 const TEMPLATE_KEY = 'universal_cv_active_template';
 
+/**
+ * LocalStorage-დან შენახული CV მონაცემების წამოღება.
+ * თუ მონაცემები არ არსებობს ან შეცდომაა, აბრუნებს სტანდარტულ ცარიელ შაბლონს (redberryBlank).
+ */
 export function loadSavedCv(): CVData {
   try {
     const raw = localStorage.getItem(STORAGE_KEY);
@@ -34,6 +39,9 @@ export function loadSavedCv(): CVData {
   }
 }
 
+/**
+ * CV მონაცემების შენახვა LocalStorage-ში
+ */
 export function saveCvToStorage(data: CVData): void {
   try {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
@@ -42,6 +50,9 @@ export function saveCvToStorage(data: CVData): void {
   }
 }
 
+/**
+ * LocalStorage-დან CV მონაცემების გასუფთავება (Clear & Start New)
+ */
 export function clearCvStorage(): void {
   try {
     localStorage.removeItem(STORAGE_KEY);
@@ -50,6 +61,9 @@ export function clearCvStorage(): void {
   }
 }
 
+/**
+ * მიმდინარე აქტიური ნაბიჯის წამოღება LocalStorage-დან
+ */
 export function loadSavedStep(): number {
   try {
     const step = localStorage.getItem(STEP_KEY);
@@ -59,6 +73,9 @@ export function loadSavedStep(): number {
   }
 }
 
+/**
+ * მიმდინარე აქტიური ნაბიჯის შენახვა LocalStorage-ში
+ */
 export function saveStepToStorage(step: number): void {
   try {
     localStorage.setItem(STEP_KEY, step.toString());
@@ -67,18 +84,24 @@ export function saveStepToStorage(step: number): void {
   }
 }
 
+/**
+ * არჩეული ენის წამოღება LocalStorage-დან (ნაგულისხმევია 'en')
+ */
 export function loadSavedLang(): Lang {
   try {
     const lang = localStorage.getItem(LANG_KEY);
     if (lang === 'en' || lang === 'ka' || lang === 'ru') {
       return lang;
     }
-    return 'en'; // Default language is English
+    return 'en';
   } catch {
     return 'en';
   }
 }
 
+/**
+ * არჩეული ენის შენახვა LocalStorage-ში
+ */
 export function saveLangToStorage(lang: Lang): void {
   try {
     localStorage.setItem(LANG_KEY, lang);
@@ -87,6 +110,9 @@ export function saveLangToStorage(lang: Lang): void {
   }
 }
 
+/**
+ * არჩეული შაბლონის ID-ის წამოღება LocalStorage-დან
+ */
 export function loadSavedTemplate(): TemplateId {
   try {
     const t = localStorage.getItem(TEMPLATE_KEY) as TemplateId;
@@ -99,6 +125,9 @@ export function loadSavedTemplate(): TemplateId {
   }
 }
 
+/**
+ * არჩეული შაბლონის ID-ის შენახვა LocalStorage-ში
+ */
 export function saveTemplateToStorage(templateId: TemplateId): void {
   try {
     localStorage.setItem(TEMPLATE_KEY, templateId);

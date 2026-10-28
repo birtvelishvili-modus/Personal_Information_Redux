@@ -1,10 +1,19 @@
 import React from 'react';
 
+/**
+ * StarWatermark კომპონენტის Props ინტერფეისი
+ */
 interface StarWatermarkProps {
-  className?: string;
-  size?: number;
+  className?: string; // დამატებითი Tailwind კლასები (ზომა, ფერი, opacity)
+  size?: number;      // ზომა პიქსელებში (არასავალდებულო)
 }
 
+/**
+ * Redberry-ის წრიული ბეჭდის (Watermark) კომპონენტი:
+ * - გარეთა და შიდა წრეები
+ * - წრიული ტექსტი: "DIGITAL TRANSFORMATION AGENCY REDBERRY •" და "• 405060419 •"
+ * - ცენტრში 4-ქიმიანი მოხრილი კონტურული ვარსკვლავი
+ */
 export const StarWatermark: React.FC<StarWatermarkProps> = ({ className = '', size }) => {
   return (
     <div
@@ -17,7 +26,7 @@ export const StarWatermark: React.FC<StarWatermarkProps> = ({ className = '', si
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
-        {/* Outer Circle */}
+        {/* გარეთა წრე */}
         <circle
           cx="250"
           cy="250"
@@ -26,7 +35,7 @@ export const StarWatermark: React.FC<StarWatermarkProps> = ({ className = '', si
           strokeWidth="2.2"
         />
 
-        {/* Inner Circle */}
+        {/* შიდა წრე */}
         <circle
           cx="250"
           cy="250"
@@ -35,13 +44,15 @@ export const StarWatermark: React.FC<StarWatermarkProps> = ({ className = '', si
           strokeWidth="2.2"
         />
 
-        {/* Text Curved Paths */}
+        {/* ტექსტის მოსახვევი გზები (Text Paths) */}
         <defs>
+          {/* ზედა რკალი */}
           <path
             id="textPathUpper"
             d="M 37,250 A 213,213 0 1,1 463,250"
             fill="none"
           />
+          {/* ქვედა რკალი */}
           <path
             id="textPathLower"
             d="M 463,250 A 213,213 0 0,1 37,250"
@@ -49,7 +60,7 @@ export const StarWatermark: React.FC<StarWatermarkProps> = ({ className = '', si
           />
         </defs>
 
-        {/* Upper Arc Text */}
+        {/* ზედა რკალის ტექსტი */}
         <text
           fontSize="15"
           fill="currentColor"
@@ -62,7 +73,7 @@ export const StarWatermark: React.FC<StarWatermarkProps> = ({ className = '', si
           </textPath>
         </text>
 
-        {/* Lower Arc Text */}
+        {/* ქვედა რკალის ტექსტი */}
         <text
           fontSize="15.5"
           fill="currentColor"
@@ -75,7 +86,7 @@ export const StarWatermark: React.FC<StarWatermarkProps> = ({ className = '', si
           </textPath>
         </text>
 
-        {/* Center 4-Point Outlined Curved Star */}
+        {/* ცენტრალური 4-ქიმიანი კონტურული ვარსკვლავი */}
         <path
           d="M 250,172 Q 250,250 328,250 Q 250,250 250,328 Q 250,250 172,250 Q 250,250 250,172 Z"
           fill="none"

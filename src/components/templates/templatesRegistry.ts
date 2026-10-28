@@ -10,7 +10,13 @@ import { europassReady } from './europass/europass.ready';
 import { creativeBlank } from './creative/creative.blank';
 import { creativeReady } from './creative/creative.ready';
 
+/**
+ * შაბლონების რეესტრი (Templates Registry):
+ * შეიცავს თითოეული CV შაბლონის მეტამონაცემებს, აქცენტურ ფერებს,
+ * ცარიელ (blank) მონაცემებს და მზა (ready) დემო ნიმუშებს.
+ */
 export const TEMPLATES: Record<TemplateId, TemplateDefinition> = {
+  // Redberry ოფიციალური შაბლონი
   redberry: {
     id: 'redberry',
     nameKey: 'templates.redberry.name',
@@ -20,6 +26,7 @@ export const TEMPLATES: Record<TemplateId, TemplateDefinition> = {
     blank: redberryBlank,
     ready: redberryReady,
   },
+  // მოდერნ შაბლონი
   modern: {
     id: 'modern',
     nameKey: 'templates.modern.name',
@@ -29,6 +36,7 @@ export const TEMPLATES: Record<TemplateId, TemplateDefinition> = {
     blank: modernBlank,
     ready: modernReady,
   },
+  // ორსვეტიანი (Two-Column) შაბლონი
   twoColumn: {
     id: 'twoColumn',
     nameKey: 'templates.twoColumn.name',
@@ -38,6 +46,7 @@ export const TEMPLATES: Record<TemplateId, TemplateDefinition> = {
     blank: twoColumnBlank,
     ready: twoColumnReady,
   },
+  // ევროპასის (Europass) საერთაშორისო შაბლონი
   europass: {
     id: 'europass',
     nameKey: 'templates.europass.name',
@@ -47,6 +56,7 @@ export const TEMPLATES: Record<TemplateId, TemplateDefinition> = {
     blank: europassBlank,
     ready: europassReady,
   },
+  // კრეატიული (Creative) შაბლონი
   creative: {
     id: 'creative',
     nameKey: 'templates.creative.name',
@@ -58,4 +68,7 @@ export const TEMPLATES: Record<TemplateId, TemplateDefinition> = {
   },
 };
 
+/**
+ * ყველა შაბლონის მასივი მოდალში ან სიებში გადასავლელად
+ */
 export const TEMPLATE_LIST: TemplateDefinition[] = Object.values(TEMPLATES);

@@ -4,13 +4,23 @@ import { StarWatermark } from './StarWatermark';
 import { useAppSelector } from '../store/store';
 import { getTranslation } from '../utils/i18n';
 
+/**
+ * LandingPage კომპონენტის Props ინტერფეისი
+ */
 interface LandingPageProps {
-  onStartResume: () => void;
-  onOpenDemoCv?: () => void;
-  hasExistingData: boolean;
-  onClearAndStartNew: () => void;
+  onStartResume: () => void;     // რეზიუმეს შევსების დაწყების ფუნქცია
+  onOpenDemoCv?: () => void;     // დემო CV-ის გახსნის ფუნქცია
+  hasExistingData: boolean;      // არსებობს თუ არა უკვე შენახული მონაცემები
+  onClearAndStartNew: () => void;// მონაცემების გასუფთავებისა და თავიდან დაწყების ფუნქცია
 }
 
+/**
+ * საწყისი (Landing) გვერდის კომპონენტი:
+ * - შეიცავს თანამედროვე იისფერ გრადიენტს მარჯვენა მხარეს და გრეინის ტექსტურას
+ * - ცენტრში განთავსებულია Redberry-ის 4-ქიმიანი წრიული ბეჭედი
+ * - მთავარი მოქმედების ღილაკი "რეზიუმეს დამატება"
+ * - დრაფტის არსებობის შემთხვევაში გასუფთავების ღილაკი
+ */
 export const LandingPage: React.FC<LandingPageProps> = ({
   onStartResume,
   hasExistingData,
@@ -20,16 +30,16 @@ export const LandingPage: React.FC<LandingPageProps> = ({
 
   return (
     <div className="relative flex-1 w-full h-full overflow-hidden flex flex-col justify-center items-center bg-[#FAFAFA] px-4 py-4 select-none">
-      {/* Soft Purple/Violet Gradient on Right Side (matching photo) */}
+      {/* რბილი იასამნისფერი/იისფერი გრადიენტი მარჯვენა მხარეს */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
-        {/* Main Vivid Purple/Violet Glow on Top-Right */}
+        {/* მთავარი იისფერი ნათება ზედა მარჯვენა კუთხეში */}
         <div className="absolute -top-[12%] -right-[12%] sm:-right-[2%] w-[500px] sm:w-[860px] h-[500px] sm:h-[860px] rounded-full bg-gradient-to-bl from-[#C084FC]/70 via-[#9333EA]/45 to-transparent blur-[70px] sm:blur-[115px]" />
 
-        {/* Secondary Lavender Accent on Right */}
+        {/* მეორადი ლავანდისფერი აქცენტი მარჯვენა კიდეზე */}
         <div className="absolute top-[25%] -right-[8%] w-[380px] sm:w-[650px] h-[380px] sm:h-[650px] rounded-full bg-gradient-to-l from-[#C084FC]/55 via-[#DDD6FE]/40 to-transparent blur-[60px] sm:blur-[95px]" />
       </div>
 
-      {/* Subtle Grain / Noise Texture Overlay */}
+      {/* გრაფიკული ხმაურის (Noise/Grain) ტექსტურის ფენა */}
       <div
         className="absolute inset-0 pointer-events-none opacity-[0.25] mix-blend-overlay"
         style={{
@@ -39,7 +49,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({
         aria-hidden="true"
       />
 
-      {/* Circular Star Watermark Centered Directly Behind Button */}
+      {/* წრიული ბეჭედი (Star Watermark) ცენტრში, უშუალოდ ღილაკის უკან */}
       <div
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none select-none z-0"
         aria-hidden="true"
@@ -47,7 +57,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({
         <StarWatermark className="w-[270px] h-[270px] sm:w-[370px] sm:h-[370px] text-[#1A1A1A] opacity-[0.22]" />
       </div>
 
-      {/* Main Center Area */}
+      {/* მთავარი ცენტრალური ზონა */}
       <div className="relative z-10 my-auto flex flex-col items-center justify-center text-center max-w-lg w-full py-4">
         <motion.div
           initial={{ opacity: 0, y: 12 }}
@@ -55,7 +65,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({
           transition={{ duration: 0.35 }}
           className="space-y-5 sm:space-y-6 w-full flex flex-col items-center"
         >
-          {/* Main Action Button */}
+          {/* მთავარი მოქმედების ღილაკი: რეზიუმეს დამატება */}
           <div>
             <button
               type="button"
@@ -66,6 +76,7 @@ export const LandingPage: React.FC<LandingPageProps> = ({
             </button>
           </div>
 
+          {/* შენახული მონაცემების მითითება და გასუფთავების ღილაკი */}
           {hasExistingData && (
             <motion.div
               initial={{ opacity: 0 }}

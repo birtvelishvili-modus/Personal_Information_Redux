@@ -5,12 +5,21 @@ import { useAppSelector } from '../store/store';
 import { TEMPLATES } from './templates/templatesRegistry';
 import { getTranslation } from '../utils/i18n';
 
+/**
+ * DemoTourModal კომპონენტის Props ინტერფეისი
+ */
 interface DemoTourModalProps {
-  isOpen: boolean;
-  onClose: () => void;
-  onApplyTemplateToUser?: () => void;
+  isOpen: boolean;                      // მოდალის გახსნის სტატუსი
+  onClose: () => void;                  // მოდალის დახურვის ფუნქცია
+  onApplyTemplateToUser?: () => void;  // ნიმუშის მონაცემების გადმოტანა ფორმაში
 }
 
+/**
+ * დემო ტურის მოდალი (Demo Tour Modal):
+ * - მომხმარებელს აჩვენებს შაბლონის სრულყოფილად შევსებულ ნიმუშს
+ * - საშუალებას აძლევს დაათვალიეროს CV და სურვილის შემთხვევაში გადმოიტანოს მონაცემები თავის ფორმაში
+ * - მხარს უჭერს Escape ღილაკით დახურვას
+ */
 export const DemoTourModal: React.FC<DemoTourModalProps> = ({
   isOpen,
   onClose,

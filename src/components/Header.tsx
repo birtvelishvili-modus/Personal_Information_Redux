@@ -4,43 +4,51 @@ import { RedberryLogo } from './RedberryLogo';
 import { AppView, StepType, Lang, TemplateId } from '../types/cv';
 import { getTranslation } from '../utils/i18n';
 
+/**
+ * Header კომპონენტის Props ინტერფეისი
+ */
 interface HeaderProps {
-  view: AppView;
-  currentStep: StepType;
-  currentLang: Lang;
-  selectedTemplate: TemplateId;
-  isCustomized?: boolean;
-  onGoHome: () => void;
-  onOpenDemoTour: () => void;
-  onOpenDemoCv: () => void;
-  onApplyTemplate?: () => void;
-  onResetSample?: () => void;
-  onOpenTemplateSelector?: () => void;
-  onChangeLang: (lang: Lang) => void;
-  isAutoSaved?: boolean;
+  view: AppView;                      // მიმდინარე ხედი ('landing', 'wizard', 'completed')
+  currentStep: StepType;              // ფორმის მიმდინარე ნაბიჯი
+  currentLang: Lang;                  // არჩეული ენა
+  selectedTemplate: TemplateId;       // არჩეული შაბლონი
+  isCustomized?: boolean;             // მომხმარებლის მიერ მონაცემების მოდიფიცირების სტატუსი
+  onGoHome: () => void;               // საწყის გვერდზე გადასვლა
+  onOpenDemoTour: () => void;         // დემო ტურის გახსნა
+  onOpenDemoCv: () => void;           // დემო რეზიუმეს გახსნა
+  onApplyTemplate?: () => void;       // შაბლონის მონაცემების ჩატვირთვა
+  onResetSample?: () => void;         // საწყის მონაცემებზე დაბრუნება
+  onOpenTemplateSelector?: () => void;// შაბლონის ასარჩევი მოდალის გახსნა
+  onChangeLang: (lang: Lang) => void; // ენის შეცვლის ფუნქცია
+  isAutoSaved?: boolean;              // ავტო-შენახვის ინდიკატორი
 }
 
+/**
+ * ჰედერის კომპონენტი:
+ * - Redberry ლოგო
+ * - შენახვის სტატუსის ბეიჯი (Auto-saved)
+ * - ენის გადამრთველი (EN / KA / RU)
+ * - ნავიგაციის ღილაკები (Home, Demo Tour, Demo CV, Template და ა.შ.)
+ */
 export const Header: React.FC<HeaderProps> = ({
   view,
-  currentStep,
   currentLang,
-  selectedTemplate,
   isCustomized = false,
   onGoHome,
   onOpenDemoTour,
   onOpenDemoCv,
   onApplyTemplate,
   onResetSample,
-  onOpenTemplateSelector,
   onChangeLang,
   isAutoSaved = true,
 }) => {
   return (
     <header className="no-print w-full bg-white border-b border-[#E0E0E0] px-3 sm:px-6 md:px-8 h-14 sm:h-16 flex items-center justify-between gap-2 shrink-0 sticky top-0 z-40">
-      {/* Brand logo & status tags */}
+      {/* მარცხენა მხარე: ბრენდის ლოგო და სტატუსის ბეიჯები */}
       <div className="flex items-center gap-2 sm:gap-4 shrink-0 min-w-0">
         <RedberryLogo onClick={onGoHome} />
 
+        {/* Wizard ხედში ავტო-შენახვის ინდიკატორი */}
         {view === 'wizard' && isAutoSaved && (
           <span
             role="status"
@@ -52,6 +60,7 @@ export const Header: React.FC<HeaderProps> = ({
           </span>
         )}
 
+        {/* დასრულებული CV-ის ეკრანზე მზაობის ბეიჯი */}
         {view === 'completed' && (
           <div className="inline-flex items-center gap-1 sm:gap-1.5 text-[11px] sm:text-xs font-medium px-2 sm:px-2.5 py-0.5 sm:py-1 bg-[#E8F8EE] text-[#0E9F6E] rounded-md border border-[#D1F3DF] whitespace-nowrap">
             <CheckCircle2 className="w-3 h-3 sm:w-3.5 sm:h-3.5" aria-hidden="true" />
@@ -60,9 +69,9 @@ export const Header: React.FC<HeaderProps> = ({
         )}
       </div>
 
-      {/* Right side controls */}
+      {/* მარჯვენა მხარე: მართვის ელემენტები */}
       <div className="flex items-center gap-1.5 sm:gap-2.5 shrink-0">
-        {/* Language Toggle (EN default, KA, RU) */}
+        {/* ენის გადამრთველი ტოგლი (EN, KA, RU) */}
         <div className="inline-flex items-center bg-gray-100 p-0.5 rounded-full border border-gray-200 text-xs font-semibold">
           {(['en', 'ka', 'ru'] as Lang[]).map((l) => (
             <button
@@ -81,8 +90,7 @@ export const Header: React.FC<HeaderProps> = ({
           ))}
         </div>
 
-
-        {/* Home button (in wizard and completed views) */}
+        {/* მთავარ გვერდზე დაბრუნების ღილაკი (Home) */}
         {view !== 'landing' && (
           <button
             type="button"
@@ -95,7 +103,7 @@ export const Header: React.FC<HeaderProps> = ({
           </button>
         )}
 
-        {/* Clean "Template" button in Wizard view */}
+        {/* Wizard ხედში შაბლონის მონაცემების ჩატვირთვის ღილაკი */}
         {view === 'wizard' && onApplyTemplate && (
           <div className="relative group flex items-center">
             <button
@@ -108,7 +116,7 @@ export const Header: React.FC<HeaderProps> = ({
               <span>{getTranslation(currentLang, 'header.templateBtn')}</span>
             </button>
 
-            {/* Hover Tooltip Banner */}
+            {/* ახსნა-განმარტება ჰოვერზე (Tooltip) */}
             <div
               role="tooltip"
               className="pointer-events-none absolute right-0 top-full mt-2 hidden group-hover:flex group-focus-within:flex flex-col items-end z-50 animate-in fade-in zoom-in-95 duration-150"
@@ -121,7 +129,7 @@ export const Header: React.FC<HeaderProps> = ({
           </div>
         )}
 
-        {/* Reset Sample Button (visible if customized in wizard) */}
+        {/* საწყის ნიმუშზე დაბრუნების ღილაკი (თუ მონაცემები შეიცვალა) */}
         {view === 'wizard' && isCustomized && onResetSample && (
           <div className="relative group flex items-center">
             <button
@@ -136,7 +144,7 @@ export const Header: React.FC<HeaderProps> = ({
           </div>
         )}
 
-        {/* Demo CV button in Landing view */}
+        {/* საწყის გვერდზე დემო CV-ის გახსნის ღილაკი */}
         {view === 'landing' && (
           <button
             type="button"
@@ -148,7 +156,7 @@ export const Header: React.FC<HeaderProps> = ({
           </button>
         )}
 
-        {/* Demo Tour button */}
+        {/* დემო ტურის (Demo Tour) გაშვების ღილაკი */}
         <button
           type="button"
           onClick={onOpenDemoTour}

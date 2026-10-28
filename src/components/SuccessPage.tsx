@@ -6,13 +6,24 @@ import { CvPreview } from './CvPreview';
 import { useAppSelector } from '../store/store';
 import { getTranslation } from '../utils/i18n';
 
+/**
+ * SuccessPage კომპონენტის Props ინტერფეისი
+ */
 interface SuccessPageProps {
-  data: CVData;
-  onEdit: () => void;
-  onStartNew: () => void;
-  onBack: () => void;
+  data: CVData;         // დასრულებული CV-ის მონაცემები
+  onEdit: () => void;   // ფორმაში დაბრუნება რედაქტირებისთვის
+  onStartNew: () => void; // ახალი CV-ის დაწყება
+  onBack: () => void;   // უკან დაბრუნება
 }
 
+/**
+ * წარმატებით დასრულებული CV-ის გვერდი:
+ * - ჩატვირთვისას უშვებს კონფეტის ეფექტს (Canvas Confetti)
+ * - აჩვენებს Toast შეტყობინებას წარმატების შესახებ
+ * - ბეჭდვის / PDF შენახვის ღილაკი (window.print())
+ * - რედაქტირებისა და ახალი CV-ის შექმნის მოქმედებები
+ * - რეზიუმეს სრული გადახედვა (CvPreview)
+ */
 export const SuccessPage: React.FC<SuccessPageProps> = ({
   data,
   onEdit,
@@ -22,6 +33,7 @@ export const SuccessPage: React.FC<SuccessPageProps> = ({
   const [showToast, setShowToast] = useState(true);
   const currentLang = useAppSelector((state) => state.cv.currentLang);
 
+  // გვერდის ჩატვირთვისას კონფეტის ანიმაციის გაშვება
   useEffect(() => {
     try {
       confetti({
@@ -35,13 +47,14 @@ export const SuccessPage: React.FC<SuccessPageProps> = ({
     }
   }, []);
 
+  // ბრაუზერის ბეჭდვის / PDF ექსპორტის ფანჯრის გამოძახება
   const handlePrint = () => {
     window.print();
   };
 
   return (
     <div className="relative min-h-[calc(100dvh-61px)] bg-[#F8F9FA] py-8 px-4 sm:px-6 flex flex-col items-center">
-      {/* Toast Notification Top Right */}
+      {/* Toast შეტყობინება ეკრანის ზედა მარჯვენა კუთხეში */}
       {showToast && (
         <div
           role="status"
@@ -70,7 +83,7 @@ export const SuccessPage: React.FC<SuccessPageProps> = ({
         </div>
       )}
 
-      {/* Action Controls Bar */}
+      {/* მოქმედებების პანელი (ბეჭდვა, რედაქტირება, ახლის დაწყება) */}
       <div className="no-print w-full max-w-[800px] flex flex-wrap items-center justify-between gap-3 mb-6">
         <button
           type="button"
@@ -83,6 +96,7 @@ export const SuccessPage: React.FC<SuccessPageProps> = ({
         </button>
 
         <div className="flex items-center gap-2.5 sm:gap-3 flex-wrap">
+          {/* რედაქტირების ღილაკი */}
           <button
             type="button"
             onClick={onEdit}
@@ -92,29 +106,31 @@ export const SuccessPage: React.FC<SuccessPageProps> = ({
             {getTranslation(currentLang, 'actions.edit')}
           </button>
 
+          {/* ბეჭდვის / PDF შენახვის ღილაკი */}
           <button
             type="button"
             onClick={handlePrint}
             className="inline-flex items-center gap-1.5 px-4 py-2 bg-[#5E40E3] hover:bg-[#5033D1] text-white font-medium text-xs sm:text-sm rounded-md shadow-xs transition-colors cursor-pointer focus-visible:outline-2 focus-visible:outline-[#5E40E3] focus-visible:outline-offset-2"
           >
             <Printer className="w-4 h-4" aria-hidden="true" />
-            {getTranslation(currentLang, 'actions.print')}
+            {getTranslation(currentLang, 'actions.downloadPdf')}
           </button>
 
+          {/* ახალი CV-ის დაწყების ღილაკი */}
           <button
             type="button"
             onClick={onStartNew}
-            className="inline-flex items-center gap-1.5 px-4 py-2 bg-[#F93B1D] hover:bg-[#e03014] text-white font-medium text-xs sm:text-sm rounded-md shadow-xs transition-colors cursor-pointer focus-visible:outline-2 focus-visible:outline-[#F93B1D] focus-visible:outline-offset-2"
+            className="inline-flex items-center gap-1.5 px-4 py-2 bg-gray-900 hover:bg-black text-white font-medium text-xs sm:text-sm rounded-md shadow-xs transition-colors cursor-pointer focus-visible:outline-2 focus-visible:outline-gray-900 focus-visible:outline-offset-2"
           >
             <Plus className="w-4 h-4" aria-hidden="true" />
-            {getTranslation(currentLang, 'actions.newCv')}
+            {getTranslation(currentLang, 'actions.newResume')}
           </button>
         </div>
       </div>
 
-      {/* Printable / Visible CV Document */}
-      <div className="w-full max-w-[800px] flex justify-center pb-16">
-        <CvPreview data={data} id="cv-printable-area" isPrint />
+      {/* რეზიუმეს ვიზუალური გადახედვა */}
+      <div className="w-full max-w-[800px] flex justify-center">
+        <CvPreview data={data} />
       </div>
     </div>
   );

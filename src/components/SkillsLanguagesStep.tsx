@@ -3,18 +3,24 @@ import { ChevronLeft, Plus, X, Trash2 } from 'lucide-react';
 import { CVData, LanguageItem, Lang } from '../types/cv';
 import { getTranslation } from '../utils/i18n';
 
+/**
+ * SkillsLanguagesStep კომპონენტის Props ინტერფეისი
+ */
 interface SkillsLanguagesStepProps {
-  formData: CVData;
-  lang: Lang;
-  onAddSkill: (skill: string) => void;
-  onRemoveSkill: (index: number) => void;
-  onUpdateLanguage: (index: number, field: keyof LanguageItem, value: string) => void;
-  onAddLanguage: () => void;
-  onRemoveLanguage: (index: number) => void;
-  onSubmit: () => void;
-  onBack: () => void;
+  formData: CVData;       // ფორმის მონაცემები
+  lang: Lang;             // მიმდინარე ენა
+  onAddSkill: (skill: string) => void;                                                  // უნარის დამატება
+  onRemoveSkill: (index: number) => void;                                               // უნარის წაშლა
+  onUpdateLanguage: (index: number, field: keyof LanguageItem, value: string) => void; // ენის ველის განახლება
+  onAddLanguage: () => void;                                                            // ახალი ენის დამატება
+  onRemoveLanguage: (index: number) => void;                                            // ენის წაშლა
+  onSubmit: () => void;                                                                 // დასრულება და რეზიუმეს გენერაცია
+  onBack: () => void;                                                                   // წინა ეტაპზე (განათლება) დაბრუნება
 }
 
+/**
+ * ენის ცოდნის დონეები (CEFR Levels: Native, C2-A1)
+ */
 const CEFR_LEVELS = [
   'levels.native',
   'levels.c2',
@@ -25,6 +31,12 @@ const CEFR_LEVELS = [
   'levels.a1',
 ];
 
+/**
+ * ეტაპი 4: უნარები და უცხო ენები (Skills & Languages Step)
+ * - უნარების (Skills) თეგების დამატება Enter-ით ან ღილაკით და წაშლა
+ * - უცხო ენების დინამიური სია დასახელებითა და CEFR დონით
+ * - ფორმის დასრულების ღილაკი (Finish & View CV)
+ */
 export const SkillsLanguagesStep: React.FC<SkillsLanguagesStepProps> = ({
   formData,
   lang,

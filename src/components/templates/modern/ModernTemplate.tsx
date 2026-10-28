@@ -3,14 +3,23 @@ import { Mail, Phone, MapPin, Globe } from 'lucide-react';
 import { CVData, Lang } from '../../../types/cv';
 import { getTranslation } from '../../../utils/i18n';
 
+/**
+ * ModernTemplate კომპონენტის Props ინტერფეისი
+ */
 interface ModernTemplateProps {
-  data: CVData;
-  lang: Lang;
-  id?: string;
-  className?: string;
-  isPrint?: boolean;
+  data: CVData;         // CV მონაცემები
+  lang: Lang;           // მიმდინარე ენა
+  id?: string;          // DOM ID
+  className?: string;   // დამატებითი სტილის კლასები
+  isPrint?: boolean;    // ბეჭდვის რეჟიმის ფლაგი
 }
 
+/**
+ * თანამედროვე მინიმალისტური CV შაბლონი (Modern Minimalist Template):
+ * - ელეგანტური მონოქრომული სტილი
+ * - ცენტრალიზებული ჰედერი და მოკრძალებული სექციის სათაურები
+ * - კომპაქტური და სუფთა განლაგება
+ */
 export const ModernTemplate: React.FC<ModernTemplateProps> = ({
   data,
   lang,

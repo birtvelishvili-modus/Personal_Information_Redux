@@ -2,6 +2,9 @@ import { CVData } from '../types/cv';
 import { redberryReady } from '../components/templates/redberry/redberry.ready';
 import { redberryBlank } from '../components/templates/redberry/redberry.blank';
 
+/**
+ * ნიმუშად გამოსაყენებელი პროფილის სურათები (Avatars)
+ */
 export const SAMPLE_AVATARS = [
   {
     id: 'anzor',
@@ -20,5 +23,12 @@ export const SAMPLE_AVATARS = [
   },
 ];
 
+/**
+ * სტანდარტული ცარიელი CV მონაცემები
+ */
 export const BLANK_CV_DATA: CVData = redberryBlank;
+
+/**
+ * სტანდარტული დემო CV მონაცემები (ინგლისურ ენაზე)
+ */
 export const DEMO_CV_DATA: CVData = redberryReady.en;

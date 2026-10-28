@@ -4,14 +4,25 @@ import { CVData, Lang } from '../../../types/cv';
 import { StarWatermark } from '../../StarWatermark';
 import { getTranslation } from '../../../utils/i18n';
 
+/**
+ * RedberryTemplate კომპონენტის Props ინტერფეისი
+ */
 interface RedberryTemplateProps {
-  data: CVData;
-  lang: Lang;
-  id?: string;
-  className?: string;
-  isPrint?: boolean;
+  data: CVData;         // CV მონაცემები
+  lang: Lang;           // მიმდინარე ენა
+  id?: string;          // DOM ID
+  className?: string;   // დამატებითი სტილის კლასები
+  isPrint?: boolean;    // ბეჭდვის რეჟიმის ფლაგი
 }
 
+/**
+ * Redberry-ის ოფიციალური CV შაბლონი (Redberry Classic Template):
+ * - მკვეთრი წითელი (#F93B1D) სახელისა და სათაურების აქცენტები
+ * - მარჯვენა ზედა კუთხეში მომრგვალებული ფოტოსურათი
+ * - საკონტაქტო ინფორმაციის აიქონები (მეილი, ტელეფონი, ლოკაცია)
+ * - მკაფიო გამყოფი ხაზები სექციებს შორის
+ * - ქვედა მარცხენა კუთხეში Redberry-ის საფირმო ვარსკვლავის Watermark
+ */
 export const RedberryTemplate: React.FC<RedberryTemplateProps> = ({
   data,
   lang,

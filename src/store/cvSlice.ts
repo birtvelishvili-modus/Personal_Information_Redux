@@ -8,21 +8,28 @@ import {
   loadSavedTemplate,
 } from '../utils/storage';
 
+/**
+ * CV State-ის ინტერფეისი Redux-ისთვის
+ */
 export interface CvState {
-  formData: CVData;
-  currentStep: StepType;
-  activeView: AppView;
-  currentLang: Lang;
-  selectedTemplate: TemplateId;
-  isDemoTourOpen: boolean;
-  isCustomized: boolean;
+  formData: CVData;               // ფორმის შევსებული მონაცემები
+  currentStep: StepType;          // მიმდინარე ეტაპი (1, 2, 3 ან 4)
+  activeView: AppView;            // მიმდინარე ხედი ('landing', 'wizard', 'completed')
+  currentLang: Lang;              // არჩეული ენა ('en', 'ka', 'ru')
+  selectedTemplate: TemplateId;   // არჩეული შაბლონი ('redberry', 'modern' და ა.შ.)
+  isDemoTourOpen: boolean;        // დემო ტურის მოდალის გახსნის სტატუსი
+  isCustomized: boolean;          // მომხმარებელმა შეცვალა თუ არა საწყისი მონაცემები
 }
 
+// LocalStorage-დან საწყისი მნიშვნელობების წამოღება
 const initialLang = loadSavedLang();
 const initialTemplate = loadSavedTemplate();
 const initialSavedCv = loadSavedCv();
 const initialSavedStep = (loadSavedStep() as StepType) || 1;
 
+/**
+ * Redux Slice-ის საწყისი მდგომარეობა
+ */
 const initialState: CvState = {
   formData: initialSavedCv,
   currentStep: initialSavedStep >= 1 && initialSavedStep <= 4 ? initialSavedStep : 1,
@@ -33,10 +40,16 @@ const initialState: CvState = {
   isCustomized: false,
 };
 
+/**
+ * CV Slice - შეიცავს ყველა Reducer-სა და Action-ს CV-ის მონაცემების სამართავად
+ */
 export const cvSlice = createSlice({
   name: 'cv',
   initialState,
   reducers: {
+    /**
+     * პირადი ინფორმაციის ველების განახლება
+     */
     updatePersonalInfo: (
       state,
       action: PayloadAction<Partial<Pick<CVData, 'firstName' | 'lastName' | 'jobTitle' | 'email' | 'phone' | 'location' | 'address' | 'nationality' | 'birthDate' | 'website' | 'photo' | 'summary'>>>
@@ -48,6 +61,9 @@ export const cvSlice = createSlice({
       state.isCustomized = true;
     },
 
+    /**
+     * კონკრეტული სამუშაო გამოცდილების ველის განახლება ინდექსის მიხედვით
+     */
     updateExperienceItem: (
       state,
       action: PayloadAction<{ index: number; field: keyof ExperienceItem; value: string }>
@@ -62,6 +78,9 @@ export const cvSlice = createSlice({
       }
     },
 
+    /**
+     * ახალი ცარიელი სამუშაო გამოცდილების ჩანაწერის დამატება
+     */
     addExperienceItem: (state) => {
       const newItem: ExperienceItem = {
         id: `exp-${Date.now()}`,
@@ -75,6 +94,9 @@ export const cvSlice = createSlice({
       state.isCustomized = true;
     },
 
+    /**
+     * სამუშაო გამოცდილების ჩანაწერის წაშლა ინდექსის მიხედვით
+     */
     removeExperienceItem: (state, action: PayloadAction<number>) => {
       if (state.formData.experience.length > 1) {
         state.formData.experience = state.formData.experience.filter(
@@ -84,6 +106,9 @@ export const cvSlice = createSlice({
       }
     },
 
+    /**
+     * კონკრეტული განათლების ველის განახლება ინდექსის მიხედვით
+     */
     updateEducationItem: (
       state,
       action: PayloadAction<{ index: number; field: keyof EducationItem; value: string }>
@@ -98,6 +123,9 @@ export const cvSlice = createSlice({
       }
     },
 
+    /**
+     * ახალი ცარიელი განათლების ჩანაწერის დამატება
+     */
     addEducationItem: (state) => {
       const newItem: EducationItem = {
         id: `edu-${Date.now()}`,
@@ -111,6 +139,9 @@ export const cvSlice = createSlice({
       state.isCustomized = true;
     },
 
+    /**
+     * განათლების ჩანაწერის წაშლა ინდექსის მიხედვით
+     */
     removeEducationItem: (state, action: PayloadAction<number>) => {
       if (state.formData.education.length > 1) {
         state.formData.education = state.formData.education.filter(
@@ -120,6 +151,9 @@ export const cvSlice = createSlice({
       }
     },
 
+    /**
+     * ახალი პროფესიული უნარის (Skill) დამატება
+     */
     addSkill: (state, action: PayloadAction<string>) => {
       const trimmed = action.payload.trim();
       if (trimmed && !state.formData.skills.includes(trimmed)) {
@@ -128,11 +162,17 @@ export const cvSlice = createSlice({
       }
     },
 
+    /**
+     * პროფესიული უნარის წაშლა ინდექსის მიხედვით
+     */
     removeSkill: (state, action: PayloadAction<number>) => {
       state.formData.skills = state.formData.skills.filter((_, idx) => idx !== action.payload);
       state.isCustomized = true;
     },
 
+    /**
+     * უცხო ენის მონაცემის განახლება ინდექსის მიხედვით
+     */
     updateLanguageItem: (
       state,
       action: PayloadAction<{ index: number; field: keyof LanguageItem; value: string }>
@@ -147,6 +187,9 @@ export const cvSlice = createSlice({
       }
     },
 
+    /**
+     * ახალი უცხო ენის ჩანაწერის დამატება
+     */
     addLanguageItem: (state) => {
       const newItem: LanguageItem = {
         id: `lang-${Date.now()}`,
@@ -157,6 +200,9 @@ export const cvSlice = createSlice({
       state.isCustomized = true;
     },
 
+    /**
+     * უცხო ენის ჩანაწერის წაშლა ინდექსის მიხედვით
+     */
     removeLanguageItem: (state, action: PayloadAction<number>) => {
       state.formData.languages = state.formData.languages.filter(
         (_, idx) => idx !== action.payload
@@ -164,17 +210,26 @@ export const cvSlice = createSlice({
       state.isCustomized = true;
     },
 
+    /**
+     * მიმდინარე ეტაპის (Step) შეცვლა
+     */
     setStep: (state, action: PayloadAction<StepType>) => {
       state.currentStep = action.payload;
     },
 
+    /**
+     * აპლიკაციის მიმდინარე ხედის (View) შეცვლა
+     */
     setView: (state, action: PayloadAction<AppView>) => {
       state.activeView = action.payload;
     },
 
+    /**
+     * ინტერფეისის ენის შეცვლა.
+     * თუ მომხმარებელს ჯერ არ შეუცვლია მონაცემები, ავტომატურად იცვლება მზა (Ready) მონაცემების ენაც.
+     */
     setLang: (state, action: PayloadAction<Lang>) => {
       state.currentLang = action.payload;
-      // If user is currently on unmodified ready data, update it to the target language
       if (!state.isCustomized) {
         const templateDef = TEMPLATES[state.selectedTemplate];
         if (templateDef && templateDef.ready[action.payload]) {
@@ -183,9 +238,12 @@ export const cvSlice = createSlice({
       }
     },
 
+    /**
+     * CV-ის შაბლონის შეცვლა.
+     * თუ მონაცემები ჯერ არ შეცვლილა, ახალი შაბლონის დემო მონაცემები ჩაიტვირთება.
+     */
     setTemplate: (state, action: PayloadAction<TemplateId>) => {
       state.selectedTemplate = action.payload;
-      // If user hasn't typed custom data yet, adopt the new template's ready data
       if (!state.isCustomized) {
         const templateDef = TEMPLATES[action.payload];
         if (templateDef && templateDef.ready[state.currentLang]) {
@@ -194,10 +252,16 @@ export const cvSlice = createSlice({
       }
     },
 
+    /**
+     * დემო ტურის მოდალის გახსნა/დახურვა
+     */
     setDemoTourOpen: (state, action: PayloadAction<boolean>) => {
       state.isDemoTourOpen = action.payload;
     },
 
+    /**
+     * არჩეული შაბლონის მზა (Ready) მონაცემების ჩატვირთვა
+     */
     applyTemplateReady: (state) => {
       const templateDef = TEMPLATES[state.selectedTemplate];
       if (templateDef && templateDef.ready[state.currentLang]) {
@@ -206,6 +270,9 @@ export const cvSlice = createSlice({
       }
     },
 
+    /**
+     * დემო შაბლონის მონაცემების ჩატვირთვა
+     */
     applyDemoTemplate: (state) => {
       const templateDef = TEMPLATES[state.selectedTemplate];
       if (templateDef && templateDef.ready[state.currentLang]) {
@@ -214,6 +281,9 @@ export const cvSlice = createSlice({
       }
     },
 
+    /**
+     * შაბლონის სტანდარტულ მონაცემებზე დაბრუნება
+     */
     resetToTemplateDefault: (state) => {
       const templateDef = TEMPLATES[state.selectedTemplate];
       if (templateDef && templateDef.ready[state.currentLang]) {
@@ -222,6 +292,9 @@ export const cvSlice = createSlice({
       }
     },
 
+    /**
+     * ფორმის მთლიანად გასუფთავება ცარიელ (Blank) შაბლონამდე და პირველ ეტაპზე დაბრუნება
+     */
     resetToBlank: (state) => {
       const templateDef = TEMPLATES[state.selectedTemplate];
       if (templateDef) {
@@ -234,6 +307,7 @@ export const cvSlice = createSlice({
   },
 });
 
+// Action-ების ექსპორტი კომპონენტებში გამოსაყენებლად
 export const {
   updatePersonalInfo,
   updateExperienceItem,
@@ -258,4 +332,5 @@ export const {
   resetToBlank,
 } = cvSlice.actions;
 
+// Reducer-ის ექსპორტი Store-ისთვის
 export default cvSlice.reducer;

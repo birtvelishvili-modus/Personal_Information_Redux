@@ -3,15 +3,23 @@ import { CVData, Lang, TemplateId } from '../types/cv';
 import { TemplateRenderer } from './templates/TemplateRenderer';
 import { useAppSelector } from '../store/store';
 
+/**
+ * CvPreview კომპონენტის Props ინტერფეისი
+ */
 interface CvPreviewProps {
-  data: CVData;
-  templateId?: TemplateId;
-  lang?: Lang;
-  id?: string;
-  className?: string;
-  isPrint?: boolean;
+  data: CVData;             // CV-ის მონაცემები გამოსასახად
+  templateId?: TemplateId;  // კონკრეტული შაბლონის ID (არასავალდებულო, წინააღმდეგ შემთხვევაში Redux-დან)
+  lang?: Lang;              // ენა (არასავალდებულო, წინააღმდეგ შემთხვევაში Redux-დან)
+  id?: string;              // HTML ელემენტის ID
+  className?: string;       // დამატებითი სტილის კლასები
+  isPrint?: boolean;        // ბეჭდვის რეჟიმის ფლაგი
 }
 
+/**
+ * რეზიუმეს ვიზუალური გადახედვის (Live Preview) კომპონენტი:
+ * - Redux State-იდან იღებს მიმდინარე ენასა და შაბლონს
+ * - მონაცემებს გადასცემს TemplateRenderer-ს შესაბამისი დიზაინის დასარენდერებლად
+ */
 export const CvPreview: React.FC<CvPreviewProps> = ({
   data,
   templateId,
