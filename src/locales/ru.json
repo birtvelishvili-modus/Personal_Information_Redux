@@ -1,0 +1,184 @@
+{
+  "app": {
+    "title": "Redberry CV Builder | CVFier",
+    "description": "Профессиональный генератор резюме с шаблонами, предпросмотром и экспортом в PDF.",
+    "draftSaved": "У вас есть сохраненный черновик",
+    "clearAndNew": "Очистить и начать заново",
+    "addResume": "Создать резюме"
+  },
+  "header": {
+    "stepPersonal": "1/4 Личные данные",
+    "stepExperience": "2/4 Опыт работы",
+    "stepEducation": "3/4 Образование",
+    "stepSkills": "4/4 Навыки и языки",
+    "autoSaved": "Сохранено",
+    "readyCv": "Готовое резюме",
+    "templateBtn": "Шаблон",
+    "templateTooltip": "Заполнить шаблонными данными?",
+    "resetSampleBtn": "Сбросить к образцу",
+    "resetSampleTooltip": "Вернуться к исходному образцу",
+    "selectTemplate": "Выбрать шаблон",
+    "demoCv": "Демо CV",
+    "demoTour": "Демо тур",
+    "backToHome": "На главную"
+  },
+  "steps": {
+    "personal": {
+      "title": "Личные данные",
+      "firstName": "Имя",
+      "firstNamePlaceholder": "Иван",
+      "firstNameHint": "Минимум 2 символа",
+      "lastName": "Фамилия",
+      "lastNamePlaceholder": "Иванов",
+      "lastNameHint": "Минимум 2 символа",
+      "jobTitle": "Должность",
+      "jobTitlePlaceholder": "Frontend-разработчик",
+      "email": "Эл. почта",
+      "emailPlaceholder": "example@domain.com",
+      "emailHint": "Введите корректный адрес",
+      "phone": "Телефон",
+      "phonePlaceholder": "+7 999 123 45 67",
+      "phoneHint": "Включая код страны",
+      "location": "Город, страна",
+      "locationPlaceholder": "Москва, Россия",
+      "address": "Адрес проживания",
+      "addressPlaceholder": "ул. Ленина, д. 10",
+      "nationality": "Гражданство",
+      "nationalityPlaceholder": "Казахстан",
+      "birthDate": "Дата рождения",
+      "website": "Сайт / Портфолио",
+      "websitePlaceholder": "https://linkedin.com/in/username",
+      "photo": "Фотография профиля",
+      "uploadBtn": "Загрузить",
+      "uploadHint": "JPG, PNG или перетащите файл",
+      "orSample": "Или выберите образец:",
+      "photoSet": "Фото установлено",
+      "clickToChange": "Нажмите для изменения",
+      "pasteUrl": "Указать ссылку на фото",
+      "summary": "О себе",
+      "summaryPlaceholder": "Кратко опишите ваш опыт, ключевые навыки и профессиональные цели..."
+    },
+    "experience": {
+      "title": "Опыт работы",
+      "itemTitle": "Место работы",
+      "position": "Должность",
+      "positionPlaceholder": "Frontend Developer",
+      "company": "Компания / Работодатель",
+      "companyPlaceholder": "Google, Яндекс...",
+      "startDate": "Дата начала",
+      "endDate": "Дата окончания",
+      "description": "Обязанности и достижения",
+      "descriptionPlaceholder": "Обязанности, используемый стек технологий и достижения...",
+      "addMore": "Добавить еще опыт",
+      "remove": "Удалить"
+    },
+    "education": {
+      "title": "Образование",
+      "itemTitle": "Образование",
+      "institution": "Учебное заведение",
+      "institutionPlaceholder": "Государственный университет",
+      "degree": "Степень / Специальность",
+      "selectDegree": "Выберите степень",
+      "startDate": "Дата начала",
+      "endDate": "Год окончания",
+      "description": "Описание",
+      "descriptionPlaceholder": "Факультет, специальность, дипломные проекты...",
+      "addMore": "Добавить образование",
+      "remove": "Удалить"
+    },
+    "skills": {
+      "title": "Навыки и языки",
+      "skillsSection": "Профессиональные навыки",
+      "skillsPlaceholder": "Введите навык и нажмите Enter (напр. React, TypeScript, Docker)",
+      "addSkillBtn": "Добавить",
+      "languagesSection": "Владение языками",
+      "languageName": "Язык",
+      "languageNamePlaceholder": "Русский, Английский, Немецкий...",
+      "languageLevel": "Уровень владения",
+      "selectLevel": "Выберите уровень",
+      "addLanguageBtn": "Добавить язык",
+      "removeLanguage": "Удалить"
+    }
+  },
+  "templates": {
+    "redberry": {
+      "name": "Redberry Classic",
+      "category": "Reverse-Chronological",
+      "description": "Официальный стиль Redberry с акцентными заголовками и печатью."
+    },
+    "modern": {
+      "name": "Modern Minimalist",
+      "category": "Single Column",
+      "description": "Минималистичный дизайн с высокой читаемостью для ATS-систем."
+    },
+    "twoColumn": {
+      "name": "Tech Sidebar",
+      "category": "Two-Column",
+      "description": "Темная боковая панель для контактов и навыков, просторная правая часть для опыта."
+    },
+    "europass": {
+      "name": "Europass Standard",
+      "category": "Европейский формат",
+      "description": "Официальный формат ЕС с адресом, гражданством и уровнями языков CEFR."
+    },
+    "creative": {
+      "name": "Creative Accent",
+      "category": "Дизайн и медиа",
+      "description": "Визуальные акценты, бейджи и современная эстетика."
+    }
+  },
+  "degrees": {
+    "highSchool": "Аттестат о среднем образовании",
+    "bachelor": "Бакалавр",
+    "master": "Магистр",
+    "doctorate": "Кандидат / Доктор наук",
+    "associate": "Среднее специальное образование",
+    "student": "Студент",
+    "other": "Другое"
+  },
+  "levels": {
+    "native": "Родной / Свободно",
+    "c2": "C2 - В совершенстве",
+    "c1": "C1 - Продвинутый",
+    "b2": "B2 - Выше среднего",
+    "b1": "B1 - Средний",
+    "a2": "A2 - Базовый",
+    "a1": "A1 - Начальный"
+  },
+  "actions": {
+    "next": "Далее",
+    "back": "Назад",
+    "finish": "Завершить",
+    "edit": "Редактировать",
+    "print": "Печать / PDF",
+    "newCv": "Новое резюме",
+    "form": "Форма",
+    "preview": "Предпросмотр",
+    "cancel": "Отмена",
+    "confirm": "Да, очистить",
+    "close": "Закрыть"
+  },
+  "modal": {
+    "resetTitle": "Начать новое резюме",
+    "resetDesc": "Вы уверены? Все текущие заполненные данные будут удалены.",
+    "demoTourTitle": "Демо тур",
+    "demoTourSubtitle": "(Пример заполненного резюме)",
+    "demoTourNotice": "Ваши реальные данные надежно сохранены.",
+    "returnToCv": "Вернуться к моему резюме",
+    "useTemplate": "Использовать данные шаблона"
+  },
+  "toast": {
+    "successTitle": "Резюме успешно создано",
+    "successDesc": "Ваше резюме готово к отправке или печати."
+  },
+  "validation": {
+    "required": "Обязательное поле",
+    "minChars": "Минимум {n} символа(ов)",
+    "invalidEmail": "Некорректный адрес эл. почты",
+    "redberryEmailOnly": "Должно оканчиваться на @redberry.ge",
+    "georgianOnly": "Допускаются только грузинские буквы",
+    "phoneFormat": "Пожалуйста, укажите корректный номер телефона",
+    "endDateAfterStartDate": "Дата окончания должна быть позже даты начала",
+    "uploadPhoto": "Пожалуйста, загрузите фото"
+  }
+}

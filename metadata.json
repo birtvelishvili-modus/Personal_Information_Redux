@@ -1,0 +1,8 @@
+{
+    "name": "Redberry CV Builder | CVFier",
+    "description": "Redberry-ის ოფიციალური დიზაინის მიხედვით შექმნილი რეზიუმეს გენერატორი (CVFier) ცოცხალი პრევიუთი, ქართული ვალიდაციითა და PDF ბეჭდვით.",
+    "requestFramePermissions": [],
+    "majorCapabilities": [
+        "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+    ]
+}

@@ -1,0 +1,184 @@
+{
+  "app": {
+    "title": "Redberry CV Builder | CVFier",
+    "description": "პროფესიონალური მრავალშაბლონიანი CV გენერატორი ცოცხალი პრევიუთი და PDF ექსპორტით.",
+    "draftSaved": "თქვენ გაქვთ შენახული მონახაზი",
+    "clearAndNew": "გასუფთავება და ახლის დაწყება",
+    "addResume": "რეზიუმეს დამატება"
+  },
+  "header": {
+    "stepPersonal": "1/4 პირადი ინფო",
+    "stepExperience": "2/4 გამოცდილება",
+    "stepEducation": "3/4 განათლება",
+    "stepSkills": "4/4 უნარები და ენები",
+    "autoSaved": "ავტო-შენახულია",
+    "readyCv": "მზა რეზიუმე",
+    "templateBtn": "შაბლონი",
+    "templateTooltip": "გსურთ საჩვენებელი მონაცემებით შევსება?",
+    "resetSampleBtn": "შაბლონის აღდგენა",
+    "resetSampleTooltip": "საწყის საჩვენებელ შაბლონზე დაბრუნება",
+    "selectTemplate": "შაბლონის არჩევა",
+    "demoCv": "დემო CV",
+    "demoTour": "დემო ტური",
+    "backToHome": "მთავარზე დაბრუნება"
+  },
+  "steps": {
+    "personal": {
+      "title": "პირადი ინფო",
+      "firstName": "სახელი",
+      "firstNamePlaceholder": "ანზორ",
+      "firstNameHint": "მინიმუმ 2 ასო",
+      "lastName": "გვარი",
+      "lastNamePlaceholder": "მუმლაძე",
+      "lastNameHint": "მინიმუმ 2 ასო",
+      "jobTitle": "თანამდებობა / როლი",
+      "jobTitlePlaceholder": "Front-end Developer",
+      "email": "ელ.ფოსტა",
+      "emailPlaceholder": "anzor666@redberry.ge",
+      "emailHint": "უნდა მთავრდებოდეს @redberry.ge-ით",
+      "phone": "მობილურის ნომერი",
+      "phonePlaceholder": "+995 597 63 45 16",
+      "phoneHint": "ქართული მობილურის ფორმატი",
+      "location": "ქალაქი, ქვეყანა",
+      "locationPlaceholder": "თბილისი, საქართველო",
+      "address": "მისამართი",
+      "addressPlaceholder": "ვაჟა-ფშაველას გამზ. 45",
+      "nationality": "მოქალაქეობა",
+      "nationalityPlaceholder": "საქართველო",
+      "birthDate": "დაბადების თარიღი",
+      "website": "ვებსაიტი / LinkedIn",
+      "websitePlaceholder": "https://linkedin.com/in/username",
+      "photo": "პირადი ფოტოს ატვირთვა",
+      "uploadBtn": "ატვირთვა",
+      "uploadHint": "JPG, PNG ან ჩააგდეთ ფაილი აქ",
+      "orSample": "ან აირჩიეთ ნიმუში:",
+      "photoSet": "ფოტო დაყენებულია",
+      "clickToChange": "დააჭირეთ შესაცვლელად",
+      "pasteUrl": "ბმულის მითითება",
+      "summary": "ჩემ შესახებ",
+      "summaryPlaceholder": "ზოგადი ინფორმაცია თქვენი გამოცდილების, ინტერესებისა და უნარების შესახებ..."
+    },
+    "experience": {
+      "title": "გამოცდილება",
+      "itemTitle": "გამოცდილება",
+      "position": "თანამდებობა",
+      "positionPlaceholder": "Front-end Developer",
+      "company": "დამსაქმებელი",
+      "companyPlaceholder": "Redberry",
+      "startDate": "დაწყების რიცხვი",
+      "endDate": "დამთავრების რიცხვი",
+      "description": "აღწერა",
+      "descriptionPlaceholder": "როლის აღწერა, მოვალეობები და მიღწევები...",
+      "addMore": "მეტი გამოცდილების დამატება",
+      "remove": "წაშლა"
+    },
+    "education": {
+      "title": "განათლება",
+      "itemTitle": "განათლება",
+      "institution": "სასწავლებელი",
+      "institutionPlaceholder": "თბილისის სახელმწიფო უნივერსიტეტი",
+      "degree": "ხარისხი",
+      "selectDegree": "აირჩიეთ ხარისხი",
+      "startDate": "დაწყების თარიღი",
+      "endDate": "დასრულების რიცხვი",
+      "description": "აღწერა",
+      "descriptionPlaceholder": "ფაკულტეტი, მიღწევები...",
+      "addMore": "მეტი განათლების დამატება",
+      "remove": "წაშლა"
+    },
+    "skills": {
+      "title": "უნარები და ენები",
+      "skillsSection": "პროფესიული უნარები",
+      "skillsPlaceholder": "ჩაწერეთ უნარი და დააჭირეთ Enter-ს (მაგ. React, TypeScript, Tailwind)",
+      "addSkillBtn": "დამატება",
+      "languagesSection": "ენები",
+      "languageName": "ენა",
+      "languageNamePlaceholder": "ქართული, ინგლისური, გერმანული...",
+      "languageLevel": "ცოდნის დონე",
+      "selectLevel": "აირჩიეთ დონე",
+      "addLanguageBtn": "ენის დამატება",
+      "removeLanguage": "წაშლა"
+    }
+  },
+  "templates": {
+    "redberry": {
+      "name": "Redberry Classic",
+      "category": "Reverse-Chronological",
+      "description": "Redberry-ის ოფიციალური დიზაინი მკვეთრი წითელი სათაურებითა და ლოგოთი."
+    },
+    "modern": {
+      "name": "Modern Minimalist",
+      "category": "Single Column",
+      "description": "სუფთა, ATS-მეგობრული მინიმალისტური სტილი."
+    },
+    "twoColumn": {
+      "name": "Tech Sidebar",
+      "category": "Two-Column",
+      "description": "მუქი გვერდითი პანელი კონტაქტებისა და უნარებისთვის, ფართო სვეტი ისტორიისთვის."
+    },
+    "europass": {
+      "name": "Europass Standard",
+      "category": "ევროპული ფორმატი",
+      "description": "სტრუქტურირებული EU სტანდარტი მისამართით, მოქალაქეობითა და CEFR ენებით."
+    },
+    "creative": {
+      "name": "Creative Accent",
+      "category": "დიზაინი & მედია",
+      "description": "თანამედროვე ვიზუალური აქცენტები, ბეიჯები და სტილი."
+    }
+  },
+  "degrees": {
+    "highSchool": "საშუალო სკოლის დიპლომი",
+    "bachelor": "ბაკალავრი",
+    "master": "მაგისტრი",
+    "doctorate": "დოქტორი",
+    "associate": "ასოცირებული ხარისხი",
+    "student": "სტუდენტი",
+    "other": "სხვა"
+  },
+  "levels": {
+    "native": "მშობლიური / თავისუფლად",
+    "c2": "C2 - სრულყოფილი",
+    "c1": "C1 - პროფესიული",
+    "b2": "B2 - მაღალი საშუალო",
+    "b1": "B1 - საშუალო",
+    "a2": "A2 - საბაზისო",
+    "a1": "A1 - დამწყები"
+  },
+  "actions": {
+    "next": "შემდეგი",
+    "back": "უკან",
+    "finish": "დასრულება",
+    "edit": "რედაქტირება",
+    "print": "ბეჭდვა / PDF",
+    "newCv": "ახალი CV",
+    "form": "ფორმა",
+    "preview": "ცოცხალი პრევიუ",
+    "cancel": "გაუქმება",
+    "confirm": "დიახ, გასუფთავება",
+    "close": "დახურვა"
+  },
+  "modal": {
+    "resetTitle": "ახალი CV-ის დაწყება",
+    "resetDesc": "დარწმუნებული ხართ? თქვენი ამჟამინდელი შევსებული მონაცემები გასუფთავდება.",
+    "demoTourTitle": "დემო ტური",
+    "demoTourSubtitle": "(სრული რეზიუმეს ნიმუში)",
+    "demoTourNotice": "თქვენი რეალური მონაცემები უცვლელად შენახულია.",
+    "returnToCv": "ჩემს რეზიუმეზე დაბრუნება",
+    "useTemplate": "შაბლონის გამოყენება"
+  },
+  "toast": {
+    "successTitle": "რეზიუმე წარმატებით შეიქმნა",
+    "successDesc": "თქვენი CV მზადაა გასაზიარებლად ან დასაბეჭდად."
+  },
+  "validation": {
+    "required": "სავალდებულო ველი",
+    "minChars": "მინიმუმ {n} სიმბოლო",
+    "invalidEmail": "არასწორი ელ-ფოსტის ფორმატი",
+    "redberryEmailOnly": "უნდა მთავრდებოდეს @redberry.ge-ით",
+    "georgianOnly": "გამოიყენეთ მხოლოდ ქართული ასოები",
+    "phoneFormat": "უნდა აკმაყოფილებდეს მობილურის ნომრის ფორმატს",
+    "endDateAfterStartDate": "დასრულების თარიღი უნდა იყოს დაწყების თარიღზე გვიან",
+    "uploadPhoto": "გთხოვთ ატვირთოთ პირადი ფოტო"
+  }
+}

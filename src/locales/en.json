@@ -1,0 +1,184 @@
+{
+  "app": {
+    "title": "Redberry CV Builder | CVFier",
+    "description": "Professional multi-template CV generator with live preview and PDF export.",
+    "draftSaved": "You have a saved draft",
+    "clearAndNew": "Clear & Start New",
+    "addResume": "Create Resume"
+  },
+  "header": {
+    "stepPersonal": "1/4 Personal Info",
+    "stepExperience": "2/4 Experience",
+    "stepEducation": "3/4 Education",
+    "stepSkills": "4/4 Skills & Languages",
+    "autoSaved": "Auto-saved",
+    "readyCv": "Ready Resume",
+    "templateBtn": "Template",
+    "templateTooltip": "Load sample data for this template?",
+    "resetSampleBtn": "Reset Sample",
+    "resetSampleTooltip": "Revert to default template sample",
+    "selectTemplate": "Select Template",
+    "demoCv": "Demo CV",
+    "demoTour": "Demo Tour",
+    "backToHome": "Return to Home"
+  },
+  "steps": {
+    "personal": {
+      "title": "Personal Info",
+      "firstName": "First Name",
+      "firstNamePlaceholder": "John",
+      "firstNameHint": "Minimum 2 characters",
+      "lastName": "Last Name",
+      "lastNamePlaceholder": "Doe",
+      "lastNameHint": "Minimum 2 characters",
+      "jobTitle": "Job Title",
+      "jobTitlePlaceholder": "Senior Frontend Developer",
+      "email": "Email",
+      "emailPlaceholder": "example@domain.com",
+      "emailHint": "Enter a valid email address",
+      "phone": "Phone Number",
+      "phonePlaceholder": "+1 234 567 8900",
+      "phoneHint": "Include country code",
+      "location": "City, Country",
+      "locationPlaceholder": "London, United Kingdom",
+      "address": "Street Address",
+      "addressPlaceholder": "123 High Street, Flat 4B",
+      "nationality": "Nationality",
+      "nationalityPlaceholder": "British",
+      "birthDate": "Date of Birth",
+      "website": "Website / Portfolio",
+      "websitePlaceholder": "https://linkedin.com/in/username",
+      "photo": "Profile Photo",
+      "uploadBtn": "Upload",
+      "uploadHint": "JPG, PNG or drop file here",
+      "orSample": "Or pick a sample:",
+      "photoSet": "Photo set",
+      "clickToChange": "Click to change",
+      "pasteUrl": "Specify Image URL",
+      "summary": "About Me (Summary)",
+      "summaryPlaceholder": "Brief overview of your professional background, skills, and goals..."
+    },
+    "experience": {
+      "title": "Work Experience",
+      "itemTitle": "Experience",
+      "position": "Job Position",
+      "positionPlaceholder": "Frontend Developer",
+      "company": "Company / Employer",
+      "companyPlaceholder": "Google, Redberry...",
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "description": "Job Description",
+      "descriptionPlaceholder": "Responsibilities, technologies used, and key accomplishments...",
+      "addMore": "Add More Experience",
+      "remove": "Delete"
+    },
+    "education": {
+      "title": "Education",
+      "itemTitle": "Education",
+      "institution": "University / Institute",
+      "institutionPlaceholder": "State University",
+      "degree": "Degree / Qualification",
+      "selectDegree": "Select Degree",
+      "startDate": "Start Date",
+      "endDate": "Graduation Date",
+      "description": "Description",
+      "descriptionPlaceholder": "Major, achievements, relevant coursework...",
+      "addMore": "Add More Education",
+      "remove": "Delete"
+    },
+    "skills": {
+      "title": "Skills & Languages",
+      "skillsSection": "Professional Skills",
+      "skillsPlaceholder": "Type a skill and press Enter (e.g. React, TypeScript, Figma)",
+      "addSkillBtn": "Add",
+      "languagesSection": "Languages",
+      "languageName": "Language",
+      "languageNamePlaceholder": "English, German, Georgian...",
+      "languageLevel": "Proficiency Level",
+      "selectLevel": "Select level",
+      "addLanguageBtn": "Add Language",
+      "removeLanguage": "Delete"
+    }
+  },
+  "templates": {
+    "redberry": {
+      "name": "Redberry Classic",
+      "category": "Reverse-Chronological",
+      "description": "The official Redberry layout with bold red accents and clean hierarchy."
+    },
+    "modern": {
+      "name": "Modern Minimalist",
+      "category": "Single Column",
+      "description": "Clean, ATS-friendly typography with elegant lines."
+    },
+    "twoColumn": {
+      "name": "Tech Sidebar",
+      "category": "Two-Column",
+      "description": "Dark left sidebar for contacts and skills, spacious right pane for history."
+    },
+    "europass": {
+      "name": "Europass Standard",
+      "category": "European Format",
+      "description": "Structured EU standard with address, nationality, birth date, and CEFR languages."
+    },
+    "creative": {
+      "name": "Creative Accent",
+      "category": "Design & Media",
+      "description": "Visual header styling, skill pills, and modern aesthetic."
+    }
+  },
+  "degrees": {
+    "highSchool": "High School Diploma",
+    "bachelor": "Bachelor's Degree",
+    "master": "Master's Degree",
+    "doctorate": "Doctorate (Ph.D.)",
+    "associate": "Associate Degree",
+    "student": "Student",
+    "other": "Other"
+  },
+  "levels": {
+    "native": "Native / Bilingual",
+    "c2": "C2 - Mastery",
+    "c1": "C1 - Advanced",
+    "b2": "B2 - Upper Intermediate",
+    "b1": "B1 - Intermediate",
+    "a2": "A2 - Elementary",
+    "a1": "A1 - Beginner"
+  },
+  "actions": {
+    "next": "Next",
+    "back": "Back",
+    "finish": "Finish",
+    "edit": "Edit",
+    "print": "Print / PDF",
+    "newCv": "New CV",
+    "form": "Form",
+    "preview": "Live Preview",
+    "cancel": "Cancel",
+    "confirm": "Yes, Clear",
+    "close": "Close"
+  },
+  "modal": {
+    "resetTitle": "Start Fresh CV",
+    "resetDesc": "Are you sure? All your currently filled information will be cleared.",
+    "demoTourTitle": "Demo Tour",
+    "demoTourSubtitle": "(Completed Resume Preview)",
+    "demoTourNotice": "Your real form data is securely preserved.",
+    "returnToCv": "Return to My Resume",
+    "useTemplate": "Use Template Data"
+  },
+  "toast": {
+    "successTitle": "Resume Created Successfully",
+    "successDesc": "Your CV is ready to be shared or printed."
+  },
+  "validation": {
+    "required": "This field is required",
+    "minChars": "Minimum {n} characters",
+    "invalidEmail": "Invalid email format",
+    "redberryEmailOnly": "Must end with @redberry.ge",
+    "georgianOnly": "Only Georgian letters allowed",
+    "phoneFormat": "Please provide a valid phone number",
+    "endDateAfterStartDate": "End date must be later than start date",
+    "uploadPhoto": "Please upload a profile photo"
+  }
+}
